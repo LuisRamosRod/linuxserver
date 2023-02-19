@@ -1,0 +1,46 @@
+---
+title: "Primera web para Apache2"
+author: "Abraham Zamudio"
+date: "2023-02-18"
+output: flexdashboard::flex_dashboard
+---
+```{r Configuracion, include=FALSE}
+library(flexdashboard)
+```
+
+Columna1
+----------------------------------------------------
+```{r DiagramaDispersion}
+
+# Definamos una semilla 
+set.seed(666)
+
+# Generemos una muestra de una distrbucion normal 
+x <- rnorm(n = 500)
+y <- x + rnorm(500)
+
+# Visualizacion
+plot(x,y)
+```
+
+
+
+Columna2
+----------------------------------------------------
+
+### GGplot 
+```{r GraficoGGplot2}
+library(ggplot2)
+ggplot(data = mtcars) +
+  geom_point(mapping = aes(x = mpg, y = qsec, colour = factor(am)))
+
+```
+
+
+### Otro GGplot
+```{r GraficoGGplot2_vs}
+library(ggplot2)
+ggplot(data = mtcars) +
+  geom_point(mapping = aes(x = mpg, y = qsec, colour = factor(am)))+
+  facet_grid(~vs)
+```
